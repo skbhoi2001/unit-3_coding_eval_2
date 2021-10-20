@@ -21,15 +21,15 @@
         function fetchData(){
             return fetch('https://reqres.in/api/login')
             .then(res => res.json())
-            .then(res => {getInfo(res.data)})
+            .then(res => {getData(res.data)})
             .catch(err => console.log(err))
         }
 
-        function getInfo(data){
+        function getData(data){
             const name = document.getElementById('name').value;
-            const userId = document.getElementById('year').value;
+            const year = document.getElementById('year').value;
             for(let i=0;i<data.length;i++){
-                if(data[i].year == userId && data[i].name == name){
+                if(data[i].year == year && data[i].name == name){
                     window.location.href = './home.html'
                     console.log(data[i]);
                 }
