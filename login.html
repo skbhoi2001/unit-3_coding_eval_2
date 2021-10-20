@@ -8,13 +8,51 @@
 </head>
 <body>
     <form action="" id="login-form">
-        <div id="input">
+       
+            <input type="email" id="email">
             <input type="text" id="first_name">
-        <input type="email" id="email">
-        </div>
-        <div>
-            <input type="submit">
-        </div>
+            <input type="text" id="last_name">
+            <!-- <input type="text" id="password"> -->
+        
+            <button id="sub">Submit</button>
+        
     </form>
+
+    <script type="text/javascript">
+        let email = document.getElementById("email").value
+        let first_name = document.getElementById("first_name").value
+        let last_name = document.getElementById("last_name").value
+        
+
+        window.addEventListener("load",()=>{
+            let sub = document.getElementById("sub")
+            sub.addEventListener("click",fetchData)
+        })
+
+        function fetchData(){
+            fetch(`http://reqres.in/api/login`)
+            .then(res =>res.json())
+            .then(res => compare(res.data))
+            .catch(err => console.log(err))
+            
+        }
+        
+
+       function compare(data){
+           console.log(data)
+        let email = document.getElementById("email").value
+        let first_name = document.getElementById("first_name").value
+        let last_name = document.getElementById("last_name").value
+            for(let i in data){
+                if(data[i].email ==email && data[i].first_name ==first_name && data[i].last_name ==last_name){
+                    alert("login Sucessful")
+                    window.open("home.html")
+                }
+                else{
+                    alert("uns")
+                }
+            }
+        }
+    </script>
 </body>
 </html>
