@@ -44,7 +44,8 @@
        function display(data){
            var display = document.getElementById("display")
            display.innerHTML=null
-           for(let i=0;i<data.length;i++){
+           var i=0
+           while(data.length>i){
                var div = document.createElement("div")
                 div.style.display="flex"
                var uName = document.createElement("h3")
@@ -53,6 +54,7 @@
                img.src = data[i].avatar_url
                 div.append(img,uName)
                 display.append(div)
+                i++
            }
        }
 

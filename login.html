@@ -28,11 +28,13 @@
         function getData(data){
             const name = document.getElementById('name').value;
             const year = document.getElementById('year').value;
-            for(let i=0;i<data.length;i++){
+
+            let i=0
+            while(data.length>i){
                 if(data[i].year == year && data[i].name == name){
                     window.location.href = './home.html'
-                    console.log(data[i]);
                 }
+                i++
             }
         }
     </script>
